@@ -63,31 +63,31 @@ const orderController = {
         }),
       ]);
 
-      const { tokens } = await tokensNotification.findOne();
+      // const { tokens } = await tokensNotification.findOne();
 
-      const tokensResult = tokens
-        .filter((data) => data.user.role === "admin")
-        .flatMap((data) => data.tokens);
+      // const tokensResult = tokens
+      //   .filter((data) => data.user.role === "admin")
+      //   .flatMap((data) => data.tokens);
 
-      await admin.messaging().sendEachForMulticast({
-        notification: {
-          title: "FreshGreen",
-          body: "Có một đơn hàng mới",
-        },
-        tokens: tokensResult,
-        data: {
-          userId,
-        },
-      });
+      // await admin.messaging().sendEachForMulticast({
+      //   notification: {
+      //     title: "FreshGreen",
+      //     body: "Có một đơn hàng mới",
+      //   },
+      //   tokens: tokensResult,
+      //   data: {
+      //     userId,
+      //   },
+      // });
 
-      const user = await User.findById(userId).select("email");
+      // const user = await User.findById(userId).select("email");
 
-      await sendMail({
-        title: "Đặt hàng thành công",
-        content:
-          "Đơn hàng của bạn đã được đặt thành công. Hãy truy cập https://freshgreen.vercel.app/quan-li-don-hang để kiểm tra ngay và theo dõi trạng thái của đơn hàng.",
-        user: user.email,
-      });
+      // await sendMail({
+      //   title: "Đặt hàng thành công",
+      //   content:
+      //     "Đơn hàng của bạn đã được đặt thành công. Hãy truy cập https://freshgreen.vercel.app/quan-li-don-hang để kiểm tra ngay và theo dõi trạng thái của đơn hàng.",
+      //   user: user.email,
+      // });
 
       return res.status(201).json(newOrderInfo);
     } catch (error) {

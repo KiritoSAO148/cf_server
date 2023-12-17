@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 require("dotenv").config();
 
-const hostApp = "http://192.168.1.8:19000";
-const hostAdmin = "https://admin-cf-house.vercel.app";
+const hostApp = "192.168.101.101:19000";
+const hostAdmin = "http://localhost:9999";
 // const hostClient = "https://freshgreen.vercel.app";
 // const hostAdmin = "http://localhost:9999";
 const hostClient = "http://localhost:3000";
